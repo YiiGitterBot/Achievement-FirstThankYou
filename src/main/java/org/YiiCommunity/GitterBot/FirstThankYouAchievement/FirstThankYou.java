@@ -1,5 +1,6 @@
 package org.YiiCommunity.GitterBot.FirstThankYouAchievement;
 
+import com.amatkivskiy.gitter.rx.sdk.model.response.room.RoomResponse;
 import com.avaje.ebean.Ebean;
 import org.YiiCommunity.GitterBot.containers.Gitter;
 import org.YiiCommunity.GitterBot.models.database.Achievement;
@@ -14,11 +15,11 @@ public class FirstThankYou extends org.YiiCommunity.GitterBot.api.Achievement {
         checkAndInstall();
     }
 
-    public void onUserChange(User user) {
+    public void onUserChange(RoomResponse room, User user) {
         try {
             user.addAchievement(Achievement.getAchievement(getCodeName()));
             Achievement obj = Achievement.getAchievement(getCodeName());
-            Gitter.sendMessage(obj.getChatAnnounce().replace("{username}", user.getUsername()));
+            Gitter.sendMessage(room, obj.getChatAnnounce().replace("{username}", user.getUsername()));
         } catch (Exception e) {
             e.printStackTrace();
         }
