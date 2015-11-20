@@ -1,6 +1,6 @@
 package org.YiiCommunity.GitterBot.FirstThankYouAchievement;
 
-import com.amatkivskiy.gitter.rx.sdk.model.response.room.RoomResponse;
+import com.amatkivskiy.gitter.sdk.model.response.room.RoomResponse;
 import com.avaje.ebean.Ebean;
 import org.YiiCommunity.GitterBot.containers.Gitter;
 import org.YiiCommunity.GitterBot.models.database.Achievement;
